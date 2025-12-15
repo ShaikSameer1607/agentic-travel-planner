@@ -1,0 +1,10 @@
+{
+  "name": "agentic-travel-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend for Agentic Travel Planner",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
