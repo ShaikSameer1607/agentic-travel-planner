@@ -28,12 +28,17 @@ export default function ImageUploader({ setImage }) {
           className="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-neonPurple file:text-white hover:file:bg-neonBlue file:cursor-pointer"
         />
         {preview && (
-          <div className="mt-4">
-            <img
-              src={preview}
-              alt="Preview"
-              className="max-w-xs max-h-48 rounded-lg shadow-lg border-2 border-neonBlue"
-            />
+          <div className="mt-4 perspective-container">
+            <div className="polaroid-card tilt-animation float-animation">
+              <img
+                src={preview}
+                alt="Preview"
+                className="w-full h-48 object-cover rounded-t-lg"
+              />
+              <div className="p-3 text-left bg-white/20 backdrop-blur-sm">
+                <p className="text-xs text-gray-300">Travel Inspiration</p>
+              </div>
+            </div>
           </div>
         )}
         <p className="text-sm text-gray-400 text-center">

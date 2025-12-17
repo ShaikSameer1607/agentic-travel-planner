@@ -8,6 +8,7 @@ import flightsRoutes from "./routes/flights.js";
 import hotelsRoutes from "./routes/hotels.js";
 import newsRoutes from "./routes/news.js";
 import agentRoutes from "./routes/agent.js";
+import authRoutes from "./routes/auth.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use("/api/flights", flightsRoutes);
 app.use("/api/hotels", hotelsRoutes);
 app.use("/api/news", newsRoutes);
 app.use("/api/agent", agentRoutes);
+app.use("/api/auth", authRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

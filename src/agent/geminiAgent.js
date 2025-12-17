@@ -20,7 +20,21 @@ export async function runAgent({ prompt, image }) {
     });
 
     if (!response.ok) {
-      throw new Error(`Agent API error: ${response.statusText}`);
+      // Try to parse error response
+      let errorMessage = `Agent API error: ${response.status} ${response.statusText}`;
+      try {
+        const errorData = await response.json();
+        if (errorData.message) {
+          errorMessage = errorData.message;
+          // Handle specific Gemini API quota error
+          if (errorMessage.includes('quota') || errorMessage.includes('Quota')) {
+            errorMessage = 'You have exceeded your daily quota for the Gemini API. Please try again tomorrow or use a different API key.';
+          }
+        }
+      } catch (parseError) {
+        // If we can't parse the error, use the generic message
+      }
+      throw new Error(errorMessage);
     }
 
     const data = await response.json();

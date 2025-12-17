@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        neonBlue: "#4fd1ff",
-        neonPurple: "#a855f7",
+        neonBlue: "#2EF8FF",
+        neonPurple: "#C95EFF",
+        neonPink: "#FF3C88",
       },
     },
   },
